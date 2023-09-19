@@ -35,19 +35,19 @@ CFLAGS = -Wall -Wextra -Werror
 all: $(NAME)
 
 %.o: %.c ${HEADER}
-	${CC} ${CFLAGS} -c ${SRCS} ${BSRCS}
+	@${CC} ${CFLAGS} -c ${SRCS} ${BSRCS}
 
 $(NAME): $(OBJS)
-	${AR} ${NAME} ${OBJS}
+	@${AR} ${NAME} ${OBJS}
 	
 bonus: $(NAME)
-	${AR} ${NAME} ${BOBJS}
+	@${AR} ${NAME} ${BOBJS}
 	
 clean:
-	${RM} ${OBJS} ${BOBJS}
+	@${RM} ${OBJS} ${BOBJS}
 
 fclean: clean
-	${RM} ${NAME}
+	@${RM} ${NAME}
 
 re: fclean all
 

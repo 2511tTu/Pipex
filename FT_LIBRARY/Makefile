@@ -19,36 +19,36 @@ NAME = ft_library.a
 all: get_next_line.a libftprintf.a libft.a $(NAME)
 
 $(NAME): get_next_line.a libftprintf.a libft.a
-	ar rcs $(NAME) objects/*.o
-	mv $(NAME) ./..
+	@ar rcs $(NAME) objects/*.o
+	@mv $(NAME) ./..
 
 libft.a: ${LIBFT}/Makefile
-	cd ${LIBFT} && $(MAKE)
-	mkdir -p objects
-	cd ${LIBFT} && mv *.o ../objects
-	echo "libft.a rule applied"
+	@cd ${LIBFT} && $(MAKE) --no-print-directory
+	@mkdir -p objects
+	@cd ${LIBFT} && mv *.o ../objects
+	@echo "libft.a rule applied"
 
 libftprintf.a: ${PRINTF}/Makefile
-	cd ${PRINTF} && $(MAKE)
-	mkdir -p objects
-	cd ${PRINTF} && mv *.o ../objects
-	echo "libftprintf.a rule applied"
+	@cd ${PRINTF} && $(MAKE) --no-print-directory
+	@mkdir -p objects
+	@cd ${PRINTF} && mv *.o ../objects
+	@echo "libftprintf.a rule applied"
 
 
 get_next_line.a: ${GNL}/Makefile
-	cd ${GNL} && $(MAKE)
-	mkdir -p objects
-	cd ${GNL} && mv *.o ../objects
-	echo "gnl.a rule applied"
+	@cd ${GNL} && $(MAKE) --no-print-directory
+	@mkdir -p objects
+	@cd ${GNL} && mv *.o ../objects
+	@echo "gnl.a rule applied"
 
 
 clean:
-	 rm -rf objects
+	@rm -rf objects
 
 fclean: clean
-	cd ${LIBFT} && $(MAKE) fclean
-	cd ${PRINTF} && $(MAKE) fclean
-	cd ${GNL} && $(MAKE) fclean
+	@cd ${LIBFT} && $(MAKE) --no-print-directory fclean
+	@cd ${PRINTF} && $(MAKE) --no-print-directory fclean
+	@cd ${GNL} && $(MAKE) --no-print-directory fclean
 
 .PHONY: all announce clean fclean re libft.a libftprintf.a get_next_line.a
 
